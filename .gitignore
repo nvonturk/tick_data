@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+renv/library/
+renv/staging/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Julia
+.julia/
+
+# Matlab
+*.asv
+*.mex*
+
+# Data (often too large for git)
+Data/Raw/
+*.csv
+*.parquet
+*.dta
+*.rds
+
+# Outputs (can be regenerated)
+Output/Figures/*
+Output/Tables/*
+!Output/**/.gitkeep
