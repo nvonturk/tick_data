@@ -88,3 +88,19 @@ ed_expiry <- function(year, month) {
   # Convert to US/Eastern
   with_tz(expiry_london, tzone = "US/Eastern")
 }
+
+#' Get SOFR (SR3) futures expiry datetime in US/Eastern
+#'
+#' @param year Contract year
+#' @param month Contract month
+#' @return POSIXct datetime of expiry in US/Eastern timezone
+sr3_expiry <- function(year, month) {
+  imm <- third_wednesday(year, month)
+  expiry_date <- imm - days(1)
+
+  # Expiry is 5:00 AM Eastern time
+  ymd_hms(
+    paste(expiry_date, "05:00:00"),
+    tz = "US/Eastern"
+  )
+}
