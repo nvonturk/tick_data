@@ -41,7 +41,7 @@ ed_contracts |>
       mutate(
         contract_month = contract_month,
         contract_year = contract_year,
-        expiry_datetime = expiry_datetime
+        expiry_datetime = format(expiry_datetime)
       ) |>
       dbWriteTable(con$sql_conn, ed_table, value = _, append = TRUE)
 

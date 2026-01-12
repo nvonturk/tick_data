@@ -39,12 +39,7 @@ clean_tick_data <- function(filepath) {
     show_col_types = FALSE
   ) |>
     rename_with(~ .x |> tolower() |> str_replace_all(" ", "_")) |>
-    mutate(
-      date = mdy(date),
-      time = as_hms(time),
-      datetime = mdy_hms(date_and_time)
-    ) |>
-    select(-date_and_time)
+    mutate(date = mdy(date))
 }
 
 #' Find the 3rd Wednesday of a given month
