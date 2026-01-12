@@ -8,12 +8,15 @@ Tick data CSVs are read from external storage (`F:/TickJobs/`), configured in `C
 
 ## Implemented
 
-**Eurodollar (ED) Futures** - Processes quarterly contracts (H/M/U/Z months), calculates expiry datetime (2nd London banking day before 3rd Wednesday, 11:00 AM London time), and writes to `tick_data.dbo.ED`.
+**Eurodollar (ED) Futures** - Processes quarterly contracts (H/M/U/Z months) and writes to `tick_data.dbo.ED`.
+
+**SOFR 3-Month (SR3) Futures** - Processes quarterly contracts (H/M/U/Z months) and writes to `tick_data.dbo.SR3`.
 
 ## Usage
 
 ```r
-source("Code/ED.R")
+source("Code/ED.R")   # Eurodollar futures
+source("Code/SR3.R")  # SOFR 3-month futures
 ```
 
 ## Dependencies

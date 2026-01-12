@@ -13,8 +13,9 @@ Tick data CSVs are stored externally at `F:/TickJobs/` (configured in `Code/conf
 ## Code Structure
 
 - `Code/config.R` - Paths to external tick data directories
-- `Code/utils.R` - Shared cleaning functions and expiry calculations
+- `Code/utils.R` - Shared cleaning functions
 - `Code/ED.R` - Eurodollar futures processing script
+- `Code/SR3.R` - SOFR 3-month futures processing script
 
 ## Database
 

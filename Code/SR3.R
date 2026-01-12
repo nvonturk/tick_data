@@ -35,13 +35,11 @@ sr3_contracts |>
     month_letter <- str_extract(symbol, "(?<=SR3)[HMUZ]")
     contract_month <- CONTRACT_MONTH_CODES[month_letter]
     contract_year <- as.integer(paste0("20", str_extract(symbol, "\\d{2}$")))
-    expiry_datetime <- sr3_expiry(contract_year, CONTRACT_MONTH_NUMBERS[month_letter])
 
     df |>
       mutate(
         contract_month = contract_month,
-        contract_year = contract_year,
-        expiry_datetime = format(expiry_datetime)
+        contract_year = contract_year
       ) |>
       dbWriteTable(con$sql_conn, sr3_table, value = _, append = TRUE)
 
