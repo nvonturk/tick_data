@@ -29,19 +29,7 @@ if (dbExistsTable(con$sql_conn, sr3_table)) {
 sr3_contracts |>
   walk(~ {
     df <- clean_tick_data(.x)
-
-    # Extract contract info from first row's symbol
-    symbol <- df$symbol[1]
-    month_letter <- str_extract(symbol, "(?<=SR3)[HMUZ]")
-    contract_month <- CONTRACT_MONTH_CODES[month_letter]
-    contract_year <- as.integer(paste0("20", str_extract(symbol, "\\d{2}$")))
-
-    df |>
-      mutate(
-        contract_month = contract_month,
-        contract_year = contract_year
-      ) |>
-      dbWriteTable(con$sql_conn, sr3_table, value = _, append = TRUE)
-
+    dbWriteTable(con$sql_conn, sr3_table, value = df, append = TRUE)
     cat("Done:", basename(.x), "\n")
   })
+

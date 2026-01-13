@@ -21,5 +21,5 @@ source("Code/SR3.R")  # SOFR 3-month futures
 
 ## Dependencies
 
-- R packages: dplyr, lubridate, timeDate, readr, stringr, purrr, DBI
+- R packages: dplyr, lubridate, readr, stringr, purrr, DBI
 - `Rnvonturk` package for database connections
